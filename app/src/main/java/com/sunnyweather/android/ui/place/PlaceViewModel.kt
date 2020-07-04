@@ -1,3 +1,6 @@
+/**
+ * ViewModel层
+ */
 package com.sunnyweather.android.ui.place
 
 import androidx.lifecycle.MutableLiveData

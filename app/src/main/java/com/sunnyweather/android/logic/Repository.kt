@@ -1,3 +1,6 @@
+/**
+ * 仓库层：主要是希望当存在本地缓存时，直接返回缓存数据
+ */
 package com.sunnyweather.android.logic
 
 import androidx.lifecycle.liveData
@@ -21,6 +24,6 @@ object Repository {
         } catch (e: Exception){
             Result.failure<List<Place>>(e)
         }
-        emit(result as Result<List<Place>>)
+        emit(result)
     }
 }

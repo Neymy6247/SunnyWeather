@@ -1,3 +1,6 @@
+/**
+ * 需请求的各数据的相关属性
+ */
 package com.sunnyweather.android.logic.model
 
 import com.google.gson.annotations.SerializedName

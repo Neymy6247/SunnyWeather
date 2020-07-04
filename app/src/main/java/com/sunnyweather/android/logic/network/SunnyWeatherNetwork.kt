@@ -1,9 +1,11 @@
+/**
+ * 对所有的网络请求API的封装
+ */
 package com.sunnyweather.android.logic.network
 
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.await
 import java.lang.RuntimeException
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -11,10 +13,13 @@ import kotlin.coroutines.suspendCoroutine
 
 object SunnyWeatherNetwork {
 
+    //1创建动态代理对象
     private val placeService = ServiceCreator.create(PlaceService::class.java)
 
+    //2通过调用searchPlaces函数进行发起搜索城市的请求
     suspend fun searchPlaces(query: String) = placeService.searchPlaces(query).await()
 
+    //3
     private suspend fun <T> Call<T>.await(): T{
         return suspendCoroutine { continuation ->
             enqueue(object : Callback<T>{
